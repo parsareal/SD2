@@ -1,0 +1,39 @@
+/inference/data/spec_bench/model_answer
+
+# Python
+__pycache__
+*.pyc
+*.egg-info
+dist
+.venv
+
+# Log
+*.log
+*.log.*
+*.json
+!playground/deepspeed_config_s2.json
+!playground/deepspeed_config_s3.json
+
+# Editor
+.idea
+*.swp
+
+# Other
+.DS_Store
+/train/wandb
+/train/output
+/train/checkpoints_flant5_3b
+
+# Data
+*.pkl
+*.csv
+/train/tests/state_of_the_union.txt
+
+# Build
+/train/build
+
+/train/.aim/*
+
+inference/Spec-Bench-main/
+
+*.pyc
