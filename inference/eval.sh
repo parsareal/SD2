@@ -1,7 +1,7 @@
 # Vicuna_PATH=/your_own_path/Vicuna-7b-v1.5
-Vicuna_PATH=/media/data/parsa/Vicuna-7b-v1.5
+Vicuna_PATH=your_own_path/Vicuna-7b-v1.5
 # Drafter_PATH=/your_own_path/vicuna-7b-12layers-soft-6,9,12/
-Drafter_PATH=/media/data/parsa/SortedLLaMA/vicuna-7b-12layers-soft-6,9,12/checkpoint-1493/
+Drafter_PATH=your_own_path/vicuna-7b-12layers-soft-6,9,12/
 Submodels=6,9,12
 Submodels=6,9,12
 Thresholds=0.5,0.5,0
