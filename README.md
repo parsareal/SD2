@@ -11,7 +11,7 @@ Nested Large Language Models</h2>
 
 
 
-![timeline](./inference/assets/s2d_full_results.png)
+![timeline](./inference/assets/methodology.pdf)
 
 <div align="center">
 <font color="gray">Speedup comparison of Speculative Decoding methods on Spec-Bench.</font>
