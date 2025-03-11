@@ -1,11 +1,22 @@
 <div align="center">
-  <h2><i>S2D:</i> Sorted Speculative Decoding For More Efficient <br> Deployment of
-Nested Large Language Models</h2> 
+  <h2><i>S2D:</i> Sorted Draft Speculative Decoding (SD2) 
+  Dynamic Speculative Decoding via Many-in-One Sorted Drafts</h2> 
 </div>
-<p align="center">
+<a target="_blank" href="">
+<img style="height:22pt" src="https://img.shields.io/badge/-Paper-red?style=flat&logo=arxiv"></a>
+<a target="_blank" href="https://github.com/benyaminjami/Balcony-LLaMA">
+<img style="height:22pt" src="https://img.shields.io/badge/-Code-green?style=flat&logo=github"></a>
+<a target="_blank" href="[https://huggingface.co/collections/parsakaveh/balcony-67cee9f9369495b79bd72b10](https://huggingface.co/parsakaveh/SD2-SoFT-Draft)">
+<img style="height:22pt" src="https://img.shields.io/badge/-🤗%20Model-red?style=flat"></a>
+<!-- <a target="_blank" href="https://twitter.com/DongfuJiang/status/1805438506137010326">
+<img style="height:22pt" src="https://img.shields.io/badge/-Tweet-blue?style=flat&logo=twitter"></a> -->
+<br>
+
+
+<!--  <p align="center">
  <a href="https://www.overleaf.com/project/663258f7b74d2ee3df67880a"><b>Paper</b></a> 
 <!-- | <a href="https://sites.google.com/view/spec-bench/"><b>Blog</b></a> | <a href="https://github.com/hemingkx/Spec-Bench/blob/main/Leaderboard.md"><b>Leaderboard</b></a> | <a href="ROADMAP.md"><b>Roadmap</b></a> | -->
-</p>
+<!--</p> -->
 
 
 
@@ -18,8 +29,11 @@ Nested Large Language Models</h2>
 </div>
 
 ## Introduction
+Speculative decoding (SD) is a prominent inference acceleration solution for large language models. In SD, a smaller draft model generates multiple tokens that are subsequently verified in parallel by the target model, effectively reducing decoding latency. While dynamic target adaptation has proven beneficial in self-speculative decoding, the impact of making the draft model dynamic remains largely unexplored. Conventional target-independent SD solutions typically employ a rigid draft model for a target, limiting flexibility and scalability.
+In this paper, we introduce Sorted Draft Speculative Decoding (SD2), a many-in-one draft model that leverages dynamic training and inference techniques, namely, an adaptive draft selection mechanism and an adaptive attention tree. Our dynamic draft approach offers greater flexibility to meet diverse inference budget requirements and improves decoding acceleration without sacrificing generation quality.
+We validate our method through extensive experiments across models of varying sizes (Vicuna 7B and 13B) using Spec-Bench datasets. Our results demonstrate that SD2 significantly enhances target-independent SD methods, achieving speed-ups of 1.75× and 1.69× on Vicuna 7B and 13B models, respectively, thereby outperforming Lookahead and REST
 
-Sorted Speculative Decoding  (S2D) is a method providing the capability of selecting multiple draft models adaptively based on the given target. Without the need for training separate draft models for different target models, S2D enjoys the flexibility of having different submodels in the same architecture, which causes the approach outperforms other baselines in multi-target speculative decoding scenario.
+<!-- Sorted Speculative Decoding  (S2D) is a method providing the capability of selecting multiple draft models adaptively based on the given target. Without the need for training separate draft models for different target models, S2D enjoys the flexibility of having different submodels in the same architecture, which causes the approach outperforms other baselines in multi-target speculative decoding scenario. -->
 <!-- Spec-Bench is a comprehensive benchmark designed for assessing Speculative Decoding methods across diverse scenarios. Based on Spec-Bench, we aim to establish and maintain a unified evaluation platform for open-source Speculative Decoding approaches. This platform facilitates the systematic assessment of existing methods ***in the same device and testing environment***, thereby ensuring fair comparisons.  -->
 
 # Train
@@ -138,22 +152,15 @@ We warmly welcome contributions and discussions related to Spec-Bench! If you ha
 
 ***More models are welcome!*** - If you're aware of any open-source Speculative Decoding methods not currently included in Spec-Bench, we encourage you to contribute by submitting a pull request. This helps ensure Spec-Bench remains a comprehensive and fair benchmarking platform for comparing existing methods. Please ensure that your changes are well-tested before submission. -->
 
-<!-- ## Acknowledgments
+## Acknowledgments
 
-This codebase is built from [Medusa](https://github.com/FasterDecoding/Medusa) and [EAGLE](https://github.com/SafeAILab/EAGLE). We integrated code implementations of multiple open-source Speculative Decoding methods to facilitate unified evaluation. -->
+This codebase is built from [Spec-Bench](https://github.com/hemingkx/Spec-Bench/tree/main) and [FastChat](https://github.com/lm-sys/FastChat).
 
-<!-- ## Citation
+## Citation
 
 If you find the resources in this repository useful, please cite our paper:
 
 ```
-@misc{xia2024unlocking,
-      title={Unlocking Efficiency in Large Language Model Inference: A Comprehensive Survey of Speculative Decoding}, 
-      author={Heming Xia and Zhe Yang and Qingxiu Dong and Peiyi Wang and Yongqi Li and Tao Ge and Tianyu Liu and Wenjie Li and Zhifang Sui},
-      year={2024},
-      eprint={2401.07851},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-}
-``` -->
+TODO
+``` 
 
