@@ -1,7 +1,10 @@
-<div align="center">
+<!--<div align="center">
   <h2><i>S2D:</i> Sorted Draft Speculative Decoding (SD2) 
   Dynamic Speculative Decoding via Many-in-One Sorted Drafts</h2> 
-</div>
+</div> -->
+
+## Sorted Draft Speculative Decoding (SD2)
+
 <a target="_blank" href="">
 <img style="height:22pt" src="https://img.shields.io/badge/-Paper-red?style=flat&logo=arxiv"></a>
 <a target="_blank" href="https://github.com/benyaminjami/Balcony-LLaMA">
