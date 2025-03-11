@@ -1,5 +1,5 @@
 <div align="center">
-   <h2><i>S2D:</i> Sorted Draft Speculative Decoding (SD2) 
+   <h2>Sorted Draft Speculative Decoding (SD2): 
    Dynamic Speculative Decoding via Many-in-One Sorted Drafts</h2> 
  </div> 
  
