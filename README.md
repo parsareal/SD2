@@ -22,19 +22,16 @@
 <!--</p> -->
 
 
-
-
+## Introduction
+Speculative decoding (SD) is a prominent inference acceleration solution for large language models. In SD, a smaller draft model generates multiple tokens that are subsequently verified in parallel by the target model, effectively reducing decoding latency. While dynamic target adaptation has proven beneficial in self-speculative decoding, the impact of making the draft model dynamic remains largely unexplored. Conventional target-independent SD solutions typically employ a rigid draft model for a target, limiting flexibility and scalability.
+In this paper, we introduce Sorted Draft Speculative Decoding (SD2), a many-in-one draft model that leverages dynamic training and inference techniques, namely, an adaptive draft selection mechanism and an adaptive attention tree. Our dynamic draft approach offers greater flexibility to meet diverse inference budget requirements and improves decoding acceleration without sacrificing generation quality.
+We validate our method through extensive experiments across models of varying sizes (Vicuna 7B and 13B) using Spec-Bench datasets. Our results demonstrate that SD2 significantly enhances target-independent SD methods, achieving speed-ups of 1.75× and 1.69× on Vicuna 7B and 13B models, respectively, thereby outperforming Lookahead and REST
 
 ![timeline](./inference/assets/methodology.png)
 
 <div align="center">
 <font color="gray">Speedup comparison of Speculative Decoding methods on Spec-Bench.</font>
 </div>
-
-## Introduction
-Speculative decoding (SD) is a prominent inference acceleration solution for large language models. In SD, a smaller draft model generates multiple tokens that are subsequently verified in parallel by the target model, effectively reducing decoding latency. While dynamic target adaptation has proven beneficial in self-speculative decoding, the impact of making the draft model dynamic remains largely unexplored. Conventional target-independent SD solutions typically employ a rigid draft model for a target, limiting flexibility and scalability.
-In this paper, we introduce Sorted Draft Speculative Decoding (SD2), a many-in-one draft model that leverages dynamic training and inference techniques, namely, an adaptive draft selection mechanism and an adaptive attention tree. Our dynamic draft approach offers greater flexibility to meet diverse inference budget requirements and improves decoding acceleration without sacrificing generation quality.
-We validate our method through extensive experiments across models of varying sizes (Vicuna 7B and 13B) using Spec-Bench datasets. Our results demonstrate that SD2 significantly enhances target-independent SD methods, achieving speed-ups of 1.75× and 1.69× on Vicuna 7B and 13B models, respectively, thereby outperforming Lookahead and REST
 
 <!-- Sorted Speculative Decoding  (S2D) is a method providing the capability of selecting multiple draft models adaptively based on the given target. Without the need for training separate draft models for different target models, S2D enjoys the flexibility of having different submodels in the same architecture, which causes the approach outperforms other baselines in multi-target speculative decoding scenario. -->
 <!-- Spec-Bench is a comprehensive benchmark designed for assessing Speculative Decoding methods across diverse scenarios. Based on Spec-Bench, we aim to establish and maintain a unified evaluation platform for open-source Speculative Decoding approaches. This platform facilitates the systematic assessment of existing methods ***in the same device and testing environment***, thereby ensuring fair comparisons.  -->
