@@ -35,7 +35,7 @@ Through extensive experiments with models of varying sizes (Vicuna 7B and 13B) o
 
 We use the [FastChat](https://github.com/lm-sys/FastChat/tree/main) codebase to train the draft models on the ShareGPT dataset.
 
-## Instalation
+## Installation
 
 To set up the environment, first create and activate a new conda environment:
 ```
