@@ -16,9 +16,11 @@
 </div> 
 
 ## Introduction
-Speculative decoding (SD) is a prominent inference acceleration solution for large language models. In SD, a smaller draft model generates multiple tokens that are subsequently verified in parallel by the target model, effectively reducing decoding latency. While dynamic target adaptation has proven beneficial in self-speculative decoding, the impact of making the draft model dynamic remains largely unexplored. Conventional target-independent SD solutions typically employ a rigid draft model for a target, limiting flexibility and scalability.
-In this paper, we introduce Sorted Draft Speculative Decoding (SD2), a many-in-one draft model that leverages dynamic training and inference techniques, namely, an adaptive draft selection mechanism and an adaptive attention tree. Our dynamic draft approach offers greater flexibility to meet diverse inference budget requirements and improves decoding acceleration without sacrificing generation quality.
-We validate our method through extensive experiments across models of varying sizes (Vicuna 7B and 13B) using Spec-Bench datasets. Our results demonstrate that SD2 significantly enhances target-independent SD methods, achieving speed-ups of 1.75× and 1.69× on Vicuna 7B and 13B models, respectively, thereby outperforming Lookahead and REST
+Speculative Decoding (SD) is a popular method for accelerating inference in large language models (LLMs). It involves using a smaller draft model to generate multiple tokens, which are then verified in parallel by the target model, reducing decoding latency. While self-speculative decoding has seen success with dynamic target adaptation, the effect of making the draft model dynamic has not been fully explored. Most existing SD methods rely on rigid draft models, limiting scalability and flexibility.
+
+In this paper, we introduce Sorted Draft Speculative Decoding (SD2), a many-in-one draft model that utilizes dynamic training and inference techniques. These include an adaptive draft selection mechanism and an adaptive attention tree, offering improved flexibility to meet diverse inference budget requirements. SD2 significantly enhances decoding speed without sacrificing generation quality.
+
+Through extensive experiments with models of varying sizes (Vicuna 7B and 13B) on Spec-Bench datasets, we demonstrate that SD2 outperforms existing methods like Lookahead and REST, achieving speedups of 1.75× and 1.69× on the Vicuna 7B and 13B models, respectively.
 
 ![timeline](./inference/assets/methodology.png)
 
@@ -31,9 +33,11 @@ We validate our method through extensive experiments across models of varying si
 
 # Train
 
-We used the codebase of [fastchat](https://github.com/lm-sys/FastChat/tree/main) to train our draft models on ShareGPT dataset.
+We use the [FastChat](https://github.com/lm-sys/FastChat/tree/main) codebase to train the draft models on the ShareGPT dataset.
 
-# Instalation
+## Instalation
+
+To set up the environment, first create and activate a new conda environment:
 ```
 conda create -n sd2train python=3.9
 conda activate sd2train
@@ -41,20 +45,22 @@ cd train
 pip install -r requirements.txt
 ```
 
-# Finetuning
-To train the draft model, you need to first change the ```num_hidden_layers``` attribute to 12 in the ```config.json``` of the Vicuna 7b pre-trained checkpoint path. You can set this by runing ```vi {Vicuna7b_path}/config.json```. 
+## Finetuning
+1. Modify the `num_hidden_layers` attribute in the `config.json` of the Vicuna 7B pre-trained checkpoint to 12:
+```vi {Vicuna7b_path}/config.json```.
+2. Train the draft model either with **SFT** or **SoFT**:
 After changing the config to only pick the first 12 layers, you can run the training in either SFT or SoFT.
+- For **SFT** model training:
 ```
 cd train
-```
-1) training SFT model
-```
 sh scripts/train_draft_sft.sh
 ```
-2) training SoFT model
+- For **SoFT** model training:
 ```
+cd train
 sh scripts/train_draft_soft.sh
 ```
+
 <!-- ## Additonal Setup -->
 
 <!-- #### REST (Optional) -->
@@ -83,6 +89,8 @@ We used the [Spec-Bench](https://github.com/hemingkx/Spec-Bench/tree/main) code 
 
 ## Installation
 
+To install dependencies for evaluation:
+
 ```
 conda create -n sd2eval python=3.10
 conda activate sd2eval
@@ -103,7 +111,7 @@ Currently, Spec-Bench supports the evaluation of the following open source model
 
 ## Inference
 
-Select specific command line in `eval.sh`, the results will be stored in `data/spec_bench/model_answer/`.
+To run inference, select the appropriate command in `eval.sh`. Results will be stored in `data/spec_bench/model_answer/`:
 
 ```
 cd inference
@@ -112,7 +120,7 @@ cd inference
 
 ## Speedup Report
 
-Obtain the corresponding speedup compared to vanilla autoregressive decoding.
+To compute the speedup compared to standard autoregressive decoding:
 
 ```
 python evaluation/speed.py --file-path /your_own_path/s2d.jsonl --base-path /your_own_path/vicuna.jsonl
@@ -120,7 +128,7 @@ python evaluation/speed.py --file-path /your_own_path/s2d.jsonl --base-path /you
 
 ## Result Comparison
 
-Examine whether the generated results are equal to autoregressive decoding or not.
+To compare the generated results with autoregressive decoding:
 
 ```
 python evaluation/equal.py --file-path /your_own_path/model_answer/ --jsonfile1 vicuna.jsonl --jsonfile2 s2d.jsonl
