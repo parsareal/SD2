@@ -55,19 +55,6 @@ sh scripts/train_draft_sft.sh
 ```
 sh scripts/train_draft_soft.sh
 ```
-## Model Weights
-
-Download corresponding model weights (if required) and modify the checkpoint path in `eval.sh`.
-
-- [vicuna-7B-v1.5](https://huggingface.co/lmsys/vicuna-7b-v1.5)
-- [vicuna-13B-v1.5](https://huggingface.co/lmsys/vicuna-13b-v1.5)
-- [SD2-SoFT-Draft](https://huggingface.co/parsakaveh/SD2-SoFT-Draft)
-
-<!-- - [EAGLE](https://github.com/SafeAILab/EAGLE?tab=readme-ov-file#eagle-weights)
-- [Hydra](https://github.com/zankner/hydra?tab=readme-ov-file#model-weights)
-- [Medusa-1](https://github.com/FasterDecoding/Medusa?tab=readme-ov-file#medusa-1)
-- [Speculative Sampling](https://github.com/NJUNLP/MCSD?tab=readme-ov-file#model-release) -->
-
 <!-- ## Additonal Setup -->
 
 <!-- #### REST (Optional) -->
@@ -155,5 +142,8 @@ If you find the resources in this repository useful, please cite our paper:
 
 ```
 TODO
-``` 
+```
 
+## Contact
+
+For questions or issues, please open an issue on the GitHub repository or contact the authors directly.
