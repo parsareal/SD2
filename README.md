@@ -47,7 +47,9 @@ pip install -r requirements.txt
 
 ## Finetuning
 1. Modify the `num_hidden_layers` attribute in the `config.json` of the Vicuna 7B pre-trained checkpoint to 12:
-```vi {Vicuna7b_path}/config.json```.
+
+```vi {Vicuna7b_path}/config.json```
+
 2. Train the draft model either with **SFT** or **SoFT**:
 After changing the config to only pick the first 12 layers, you can run the training in either SFT or SoFT.
 - For **SFT** model training:
