@@ -2,7 +2,8 @@
    <h2>Sorted Draft Speculative Decoding (SD2): 
    Dynamic Speculative Decoding via Many-in-One Sorted Drafts</h2> 
  </div> 
- 
+
+<div align="center"> 
 <a target="_blank" href="">
 <img style="height:22pt" src="https://img.shields.io/badge/-Paper-red?style=flat&logo=arxiv"></a>
 <a target="_blank" href="https://github.com/benyaminjami/Balcony-LLaMA">
@@ -12,6 +13,7 @@
 <!-- <a target="_blank" href="https://twitter.com/DongfuJiang/status/1805438506137010326">
 <img style="height:22pt" src="https://img.shields.io/badge/-Tweet-blue?style=flat&logo=twitter"></a> -->
 <br>
+</div> 
 
 ## Introduction
 Speculative decoding (SD) is a prominent inference acceleration solution for large language models. In SD, a smaller draft model generates multiple tokens that are subsequently verified in parallel by the target model, effectively reducing decoding latency. While dynamic target adaptation has proven beneficial in self-speculative decoding, the impact of making the draft model dynamic remains largely unexplored. Conventional target-independent SD solutions typically employ a rigid draft model for a target, limiting flexibility and scalability.
